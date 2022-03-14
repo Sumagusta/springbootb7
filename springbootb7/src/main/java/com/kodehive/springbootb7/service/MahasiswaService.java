@@ -1,5 +1,7 @@
 package com.kodehive.springbootb7.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +14,16 @@ public class MahasiswaService {
 	@Autowired // DI = Dependencies Injection -> Meminimalisir penggunaan instance, jadi tidak perlu instance berkali-kali untk mengambil method dari class/interface lain
 	private MahasiswaRepository mahasiswaRepository;
 	
-	public void read() {
-		mahasiswaRepository.findAll();
+	public List<MahasiswaModel> read() {
+		return mahasiswaRepository.findAll();
 	}
 	
 	public void create(MahasiswaModel mahasiswaModel) {
 		mahasiswaRepository.save(mahasiswaModel);
+	}
+	
+	public MahasiswaModel searchIdMahasiswa(int id) {
+		return mahasiswaRepository.searchIdMahasiswa(id);
 	}
 	
 

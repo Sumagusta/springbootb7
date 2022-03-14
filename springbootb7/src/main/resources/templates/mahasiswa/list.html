@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<tr th:each="item:${readMahasiswa}">
+		<td><p th:text="${item.no_mhs}"></p></td>
+		<td><p th:text="${item.nm_mhs}"></p></td>
+		<td><p th:text="${item.jk}"></p></td>
+		<td><p th:text="${item.alamat}"></p></td>
+		<td><p th:text="${item.status}"></p></td>
+		
+		<td><button id="btn-edit" type="button" class="btn btn-success"
+				name="update-btn" th:value="${item.no_mhs}">Update</button></td>
+				
+		<td><button id="btn-hapus" type="button" class="btn btn-danger">Hapus</button></td>
+	</tr>
+</body>
+</html>

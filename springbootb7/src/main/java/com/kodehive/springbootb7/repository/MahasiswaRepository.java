@@ -12,4 +12,8 @@ public interface MahasiswaRepository extends JpaRepository<MahasiswaModel, Integ
 	// contoh custome query
 	@Query("select m from MahasiswaModel m where m.status = ?1")
 	MahasiswaModel cariStatusMahasiswa(String status);
+	
+	// search id
+	@Query("select m from MahasiswaModel m where m.no_mahasiswa = ?1")
+	MahasiswaModel searchIdMahasiswa(int id);
 }

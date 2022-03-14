@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +24,29 @@ public class MahasiswaModel {
 	private String jk;
 	private String alamat;
 	private String status;
+
+	private String kd_jurusan; // yang membutuhkan data dari tabel lain, maka bisa menambahkan kolom untuk foreign key
+
+	public String getKd_jurusan() {
+		return kd_jurusan;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name="kd_jurusan", nullable = true, insertable = false, updatable = false)
+	private JurusanModel jurusanModel;
+	
+
+	public JurusanModel getJurusanModel() {
+		return jurusanModel;
+	}
+
+	public void setJurusanModel(JurusanModel jurusanModel) {
+		this.jurusanModel = jurusanModel;
+	}
+
+	public void setKd_jurusan(String kd_jurusan) {
+		this.kd_jurusan = kd_jurusan;
+	}
 
 	public int getNo_mhs() {
 		return no_mhs;

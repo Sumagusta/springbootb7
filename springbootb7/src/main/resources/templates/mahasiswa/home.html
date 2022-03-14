@@ -59,6 +59,22 @@
 </body>
 
 <script type="text/javascript">
+
+refreshData();
+
+	//Ajax refresh list
+	function refreshData() {
+		$.ajax({
+			url: '/mahasiswa/list',
+			type: 'get',
+			dataType: 'html',
+			success: function (result) {
+				$("#list-mahasiswa").html(result);
+			}
+		});
+	};
+	// end ajax refresh list
+
 	//Ajax Pop-up tambah data
 	$('#btn-add').click(function () {
 		$.ajax({
@@ -82,13 +98,27 @@
 			success: function (result) {
 				alert('data berhasil di simpan');
 				$('#modal-add-mahasiswa').modal('hide');
-				
+				refreshData();
 			}
 		});
 		return false;
 	});
 	// end ajax create
 	
+	//Ajax Pop-up edit data
+	$('#list-mahasiswa').on('click','#btn-edit', function () {
+		var kd_mhs = $(this).val();
+		$.ajax({
+			url: '/mahasiswa/edit',
+			type: 'get',
+			dataType: 'html',
+			data: {kd_mhs},
+			success: function (result) {
+				$('#modal-add-mahasiswa').modal('show');
+				$('#modal-add-mahasiswa').find('.modal-body').html(result);
+			}
+		});
+	});
 </script>
 
 </html>
