@@ -11,11 +11,12 @@
 		<td><p th:text="${item.jk}"></p></td>
 		<td><p th:text="${item.alamat}"></p></td>
 		<td><p th:text="${item.status}"></p></td>
-		
+
 		<td><button id="btn-edit" type="button" class="btn btn-success"
 				name="update-btn" th:value="${item.no_mhs}">Update</button></td>
-				
-		<td><button id="btn-hapus" type="button" class="btn btn-danger">Hapus</button></td>
+
+		<td><button id="btn-hapus" type="button" class="btn btn-danger"
+				th:value="${item.no_mhs}">Hapus</button></td>
 	</tr>
 </body>
 </html>

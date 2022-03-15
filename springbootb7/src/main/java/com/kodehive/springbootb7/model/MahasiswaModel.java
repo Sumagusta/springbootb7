@@ -52,7 +52,7 @@ public class MahasiswaModel {
 		return no_mhs;
 	}
 
-	public void setNo_mhs(int no_mhs) {
+	public void setNo_mhs(Integer no_mhs) {
 		this.no_mhs = no_mhs;
 	}
 

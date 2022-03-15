@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="form-horizontal">
+		<form action="#" method="get" id="form-mahasiswa-delete">
+			<p>Are you sure to delete this data?</p>
+			<input type="text" id="kd_mhs" name="no_mhs"
+				th:field="*{bingkisanDelete.no_mhs}" disabled="disabled" />
+			<button type="reset" data-dismiss="modal" class="btn btn-warning">NO</button>
+			<!-- <button type="submit" class="btn btn-danger">Yes</button> -->
+			<a
+				th:href="@{/mahasiswa/delete?(no_mhs=${bingkisanDelete.no_mhs})}">YES</a>
+		</form>
+	</div>
+</body>
+</html>

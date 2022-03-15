@@ -22,9 +22,16 @@ public class MahasiswaService {
 		mahasiswaRepository.save(mahasiswaModel);
 	}
 	
-	public MahasiswaModel searchIdMahasiswa(int id) {
+	public MahasiswaModel searchIdMahasiswa(Integer id) {
 		return mahasiswaRepository.searchIdMahasiswa(id);
 	}
 	
+	public void delete(MahasiswaModel mahasiswaModel) {
+		mahasiswaRepository.delete(mahasiswaModel);
+	}
+	
+	public void update(MahasiswaModel mahasiswaModel) {
+		mahasiswaRepository.save(mahasiswaModel);
+	}
 
 }

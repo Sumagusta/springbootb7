@@ -119,6 +119,37 @@ refreshData();
 			}
 		});
 	});
+	
+	//Ajax Pop-up hapus data
+	$('#list-mahasiswa').on('click','#btn-hapus', function () {
+		var no_mhs = $(this).val();
+		$.ajax({
+			url: '/mahasiswa/remove',
+			type: 'get',
+			dataType: 'html',
+			data: {no_mhs},
+			success: function (result) {
+				$('#modal-add-mahasiswa').modal('show');
+				$('#modal-add-mahasiswa').find('.modal-body').html(result);
+			}
+		});
+	});
+	
+	//Ajax hapus data
+	$('#list-mahasiswa').on('submit','#form-mahasiswa-delete', function () {
+		//var no_mhs = $(this).val();
+		$.ajax({
+			url: '/mahasiswa/delete',
+			type: 'post',
+			data: $(this).serialize(),
+			success: function (result) {
+				alert("Data berhasil dihapus!");
+				$('#modal-add-mahasiswa').modal('hide');
+				refreshData();
+			}
+		});
+		return false;
+	});
 </script>
 
 </html>

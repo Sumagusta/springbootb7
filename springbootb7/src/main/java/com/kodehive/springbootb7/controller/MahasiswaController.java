@@ -82,5 +82,29 @@ public class MahasiswaController {
 		return null;
 	}
 	
+	//pop up delete
+	@RequestMapping("/mahasiswa/remove")
+	private String remove(HttpServletRequest request, Model model) {
+		String no_mhs = request.getParameter("no_mhs");
+		
+		MahasiswaModel mahasiswaModel = new MahasiswaModel();
+		mahasiswaModel = mahasiswaService.searchIdMahasiswa(Integer.valueOf(no_mhs));
+		
+		model.addAttribute("bingkisanDelete", mahasiswaModel);
+		return "/mahasiswa/remove";
+	}
+	
+	// fungsi delete
+	@RequestMapping("/mahasiswa/delete")
+	private String delete(HttpServletRequest request) {
+		Integer no_mhs = Integer.valueOf(request.getParameter("no_mhs"));
+		
+		MahasiswaModel mahasiswaModel = new MahasiswaModel();
+		mahasiswaModel = mahasiswaService.searchIdMahasiswa(no_mhs);
+		
+		mahasiswaService.delete(mahasiswaModel);
+		
+		return "/mahasiswa/home";
+	}
 	
 }

@@ -14,6 +14,6 @@ public interface MahasiswaRepository extends JpaRepository<MahasiswaModel, Integ
 	MahasiswaModel cariStatusMahasiswa(String status);
 	
 	// search id
-	@Query("select m from MahasiswaModel m where m.no_mahasiswa = ?1")
-	MahasiswaModel searchIdMahasiswa(int id);
+	@Query("select m from MahasiswaModel m where no_mhs = ?1")
+	MahasiswaModel searchIdMahasiswa(Integer id);
 }
